@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Saúde em Dia - Medicina Preventiva e Nutrição</title>
+    <meta name="description" content="Descubra conteúdos sobre Medicina Preventiva, Nutrologia e longevidade. Dicas e novidades para sua saúde atualizados em 2025.">
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3050/3050520.png" sizes="32x32">
+    
+    <style>
+        /* Reset e Estilos Globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cabin', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            scroll-behavior: smooth;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #175b27;
+            font-size: 36px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: #6ba55b;
+            margin: 15px auto 0;
+        }
+        
+        /* Header */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 22px;
+            color: #175b27;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            font-weight: 600;
+            color: #333;
+            padding: 5px 0;
+        }
+        
+        nav ul li a:hover {
+            color: #6ba55b;
+        }
+        
+        nav ul li a.active {
+            color: #6ba55b;
+            border-bottom: 2px solid #6ba55b;
+        }
+        
+        /* Banner do Blog */
+        .blog-banner {
+            background-image: linear-gradient(to right, rgba(235,241,243,0.5), rgba(178,191,196,0.5)), url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 20px;
+            text-align: center;
+        }
+        
+        .blog-banner h1 {
+            font-size: 42px;
+            color: #175b27;
+            margin-bottom: 20px;
+        }
+        
+        .blog-banner p {
+            font-size: 18px;
+            color: #333;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Posts do Blog */
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .post-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .post-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .post-card:hover .post-image img {
+            transform: scale(1.05);
+        }
+        
+        .post-content {
+            padding: 20px;
+        }
+        
+        .post-categories {
+            margin-bottom: 10px;
+            font-size: 13px;
+            color: #6ba55b;
+        }
+        
+        .post-categories a {
+            margin-right: 5px;
+        }
+        
+        .post-categories a:hover {
+            text-decoration: underline;
+        }
+        
+        .post-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #175b27;
+            line-height: 1.4;
+        }
+        
+        .post-excerpt {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .post-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: #888;
+        }
+        
+        .read-more {
+            display: inline-block;
+            background-color: #6ba55b;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 5px;
+            font-weight: 500;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+        
+        .read-more:hover {
+            background-color: #5a8a4d;
+        }
+        
+        /* Sobre */
+        #sobre {
+            background-color: #f0f7ee;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-image {
+            flex: 0 0 300px;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .about-text h3 {
+            font-size: 28px;
+            color: #175b27;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+        }
+        
+        /* Contato */
+        #contato {
+            background-color: #175b27;
+            color: white;
+        }
+        
+        #contato .section-title {
+            color: white;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .contact-item i {
+            font-size: 40px;
+            color: #6ba55b;
+            margin-bottom: 20px;
+        }
+        
+        .contact-item h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        
+        .modal-content {
+            background-color: white;
+            max-width: 800px;
+            margin: 50px auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .modal-header {
+            padding: 20px;
+            background-color: #175b27;
+            color: white;
+            position: relative;
+        }
+        
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            padding-right: 40px;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            transform: rotate(90deg);
+        }
+        
+        .modal-body {
+            padding: 30px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        
+        .modal-body img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .modal-body h4 {
+            color: #175b27;
+            font-size: 20px;
+            margin: 25px 0 15px 0;
+        }
+        
+        .modal-body ul, .modal-body ol {
+            margin: 15px 0 15px 20px;
+        }
+        
+        .modal-body li {
+            margin-bottom: 8px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #0d3a1a;
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            margin: 0 10px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: #6ba55b;
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            opacity: 0.7;
+            font-size: 14px;
+            margin-top: 30px;
+        }
+        
+        /* Responsivo */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px 10px;
+            }
+            
+            .blog-banner h1 {
+                font-size: 32px;
+            }
+            
+            .section-title {
+                font-size: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .blog-banner {
+                padding: 80px 20px;
+            }
+            
+            .blog-banner h1 {
+                font-size: 28px;
+            }
+            
+            .section-title {
+                font-size: 26px;
+            }
+            
+            .modal-body {
+                padding: 20px;
+            }
+            
+            .modal-content {
+                margin: 20px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container container">
+            <div class="logo">
+                <img src="https://cdn-icons-png.flaticon.com/512/3050/3050520.png" alt="Saúde em Dia">
+                <span class="logo-text">Saúde em Dia</span>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#inicio" class="active">Início</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Banner do Blog -->
+    <section class="blog-banner" id="inicio">
+        <div class="container">
+            <h1>Blog Saúde em Dia</h1>
+            <p>Descubra conteúdos sobre saúde, nutrição e bem-estar para uma vida mais saudável e equilibrada</p>
+        </div>
+    </section>
+    
+    <!-- Blog -->
+    <section id="blog">
+        <div class="container">
+            <h2 class="section-title">Artigos Recentes</h2>
+            
+            <div class="posts-grid">
+                <!-- Post 1 -->
+                <article class="post-card">
+                    <div class="post-image">
+                        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Alimentação saudável">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-categories">
+                            <a href="#">Alimentação</a>, 
+                            <a href="#">Dicas</a>
+                        </div>
+                        <h2 class="post-title">
+                            <a class="open-modal" data-modal="modal1">Tratamento para aumentar a imunidade: descubra opções naturais</a>
+                        </h2>
+                        <p class="post-excerpt">Manter o sistema imunológico fortalecido é uma das principais formas de proteger o corpo contra infecções, inflamações crônicas...</p>
+                        <div class="post-meta">
+                            <span>Tempo de Leitura: 4 minutos</span>
+                        </div>
+                        <a class="read-more open-modal" data-modal="modal1">Leia Mais</a>
+                    </div>
+                </article>
+                
+                <!-- Post 2 -->
+                <article class="post-card">
+                    <div class="post-image">
+                        <img src="https://images.unsplash.com/photo-1535914254981-b5012eebbd15?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Exame de Bioimpedância">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-categories">
+                            <a href="#">Saúde</a>, 
+                            <a href="#">Exames</a>
+                        </div>
+                        <h2 class="post-title">
+                            <a class="open-modal" data-modal="modal2">Exame de Bioimpedância: descubra sua composição corporal</a>
+                        </h2>
+                        <p class="post-excerpt">Entenda como a tecnologia de bioimpedância pode revolucionar sua jornada de saúde e longevidade, oferecendo dados precisos sobre seu corpo...</p>
+                        <div class="post-meta">
+                            <span>Tempo de Leitura: 6 minutos</span>
+                        </div>
+                        <a class="read-more open-modal" data-modal="modal2">Leia Mais</a>
+                    </div>
+                </article>
+                
+                <!-- Post 3 -->
+                <article class="post-card">
+                    <div class="post-image">
+                        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Alimentação anti-inflamatória">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-categories">
+                            <a href="#">Alimentação</a>, 
+                            <a href="#">Saúde</a>
+                        </div>
+                        <h2 class="post-title">
+                            <a class="open-modal" data-modal="modal3">Alimentação anti-inflamatória: o que comer e o que evitar</a>
+                        </h2>
+                        <p class="post-excerpt">A inflamação é um processo natural do corpo ou, em outras palavras, uma resposta de defesa contra infecções, lesões ou toxinas...</p>
+                        <div class="post-meta">
+                            <span>Tempo de Leitura: 4 minutos</span>
+                        </div>
+                        <a class="read-more open-modal" data-modal="modal3">Leia Mais</a>
+                    </div>
+                </article>
+                
+                <!-- Post 4 -->
+                <article class="post-card">
+                    <div class="post-image">
+                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Hábitos saudáveis">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-categories">
+                            <a href="#">Dicas</a>, 
+                            <a href="#">Bem-estar</a>
+                        </div>
+                        <h2 class="post-title">
+                            <a class="open-modal" data-modal="modal4">Alimentação saudável: como adotar bons hábitos</a>
+                        </h2>
+                        <p class="post-excerpt">7 simples passos (e eficientes) para manter uma alimentação saudável sem radicalismo, com dicas práticas e eficazes...</p>
+                        <div class="post-meta">
+                            <span>Tempo de Leitura: 4 minutos</span>
+                        </div>
+                        <a class="read-more open-modal" data-modal="modal4">Leia Mais</a>
+                    </div>
+                </article>
+                
+                <!-- Post 5 -->
+                <article class="post-card">
+                    <div class="post-image">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Profissionais de saúde">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-categories">
+                            <a href="#">Saúde</a>, 
+                            <a href="#">Dicas</a>
+                        </div>
+                        <h2 class="post-title">
+                            <a class="open-modal" data-modal="modal5">Qual a diferença entre nutricionista e nutrólogo?</a>
+                        </h2>
+                        <p class="post-excerpt">Você já se pegou em dúvida na hora de buscar ajuda para melhorar sua alimentação, emagrecer com saúde ou tratar um problema de saúde...</p>
+                        <div class="post-meta">
+                            <span>Tempo de Leitura: 4 minutos</span>
+                        </div>
+                        <a class="read-more open-modal" data-modal="modal5">Leia Mais</a>
+                    </div>
+                </article>
+                
+                <!-- Post 6 -->
+                <article class="post-card">
+                    <div class="post-image">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Medicina preventiva">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-categories">
+                            <a href="#">Saúde</a>, 
+                            <a href="#">Tratamentos</a>
+                        </div>
+                        <h2 class="post-title">
+                            <a class="open-modal" data-modal="modal6">Medicina Preventiva: como funciona e benefícios</a>
+                        </h2>
+                        <p class="post-excerpt">A medicina preventiva busca o equilíbrio do organismo através da prevenção de doenças e promoção da saúde integral...</p>
+                        <div class="post-meta">
+                            <span>Tempo de Leitura: 5 minutos</span>
+                        </div>
+                        <a class="read-more open-modal" data-modal="modal6">Leia Mais</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sobre -->
+    <section id="sobre">
+        <div class="container">
+            <h2 class="section-title">Sobre o Saúde em Dia</h2>
+            
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Equipe Saúde em Dia">
+                </div>
+                
+                <div class="about-text">
+                    <h3>Informações confiáveis sobre saúde e bem-estar</h3>
+                    <p>O Saúde em Dia é um blog dedicado a trazer informações atualizadas e confiáveis sobre saúde, nutrição, medicina preventiva e qualidade de vida.</p>
+                    <p>Nosso objetivo é democratizar o acesso a conhecimentos científicos sobre saúde, traduzindo informações complexas em linguagem acessível para todos.</p>
+                    <p>Acreditamos que a prevenção é o melhor caminho para uma vida longa e saudável, e por isso focamos em conteúdos que ajudam você a tomar decisões conscientes sobre sua saúde.</p>
+                    <p>Todos os artigos são revisados por profissionais de saúde qualificados para garantir a precisão e confiabilidade das informações.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contato -->
+    <section id="contato">
+        <div class="container">
+            <h2 class="section-title">Contato</h2>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>contato@saudeemdia.com.br</p>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <h3>Telefone</h3>
+                    <p>(11) 1234-5678</p>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Localização</h3>
+                    <p>São Paulo - SP</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="logo">
+                <img src="https://cdn-icons-png.flaticon.com/512/3050/3050520.png" alt="Saúde em Dia" style="height: 50px;">
+                <span class="logo-text" style="color: white;">Saúde em Dia</span>
+            </div>
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            
+            <p style="max-width: 600px; margin: 0 auto; opacity: 0.8;">Informações confiáveis sobre saúde, nutrição e bem-estar para ajudar você a viver melhor e mais saudável.</p>
+            
+            <div class="copyright">
+                &copy; 2025 Saúde em Dia. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Modais -->
+    <!-- Modal 1 -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Tratamento para aumentar a imunidade: descubra opções naturais</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Alimentação saudável">
+                <p>Manter o sistema imunológico fortalecido é uma das principais formas de proteger o corpo contra infecções, inflamações crônicas e diversas doenças. Neste artigo, vamos explorar opções naturais para aumentar sua imunidade.</p>
+                
+                <h4>1. Alimentação balanceada</h4>
+                <p>Uma dieta rica em vitaminas, minerais e antioxidantes é fundamental para o bom funcionamento do sistema imunológico. Priorize alimentos como:</p>
+                <ul>
+                    <li>Frutas cítricas (ricas em vitamina C)</li>
+                    <li>Vegetais verde-escuros (fontes de ácido fólico)</li>
+                    <li>Castanhas e sementes (ricas em zinco e selênio)</li>
+                    <li>Alho e cebola (com propriedades anti-inflamatórias)</li>
+                </ul>
+                
+                <h4>2. Sono de qualidade</h4>
+                <p>Dormir bem é essencial para a regulação do sistema imunológico. Adultos devem buscar 7-8 horas de sono por noite, enquanto crianças e adolescentes necessitam de mais horas.</p>
+                
+                <h4>3. Controle do estresse</h4>
+                <p>O estresse crônico diminui a resposta imunológica. Práticas como meditação, yoga e exercícios de respiração podem ajudar a gerenciar o estresse.</p>
+                
+                <h4>4. Atividade física regular</h4>
+                <p>Exercícios moderados e regulares fortalecem o sistema imunológico, enquanto exercícios intensos e prolongados podem ter o efeito contrário.</p>
+                
+                <h4>5. Exposição solar moderada</h4>
+                <p>A vitamina D, produzida pela pele quando exposta ao sol, é essencial para o sistema imunológico. Busque 15-20 minutos de sol por dia, preferencialmente antes das 10h ou após as 16h.</p>
+                
+                <h4>6. Hidratação adequada</h4>
+                <p>A água é fundamental para todas as funções do organismo, incluindo o transporte de nutrientes e a eliminação de toxinas. Beba pelo menos 2 litros de água por dia.</p>
+                
+                <h4>7. Suplementação quando necessária</h4>
+                <p>Em alguns casos, pode ser necessário suplementar vitaminas e minerais
+                    <!-- 
+                    
+                    
+                    
+                    sssss
+                    
+                    -->
+                                    como vitamina C, vitamina D ou zinco. Consulte sempre um profissional de saúde antes de iniciar qualquer suplementação.</p>
+                
+                <h4>Conclusão</h4>
+                <p>Manter hábitos saudáveis é a melhor forma de fortalecer seu sistema imunológico naturalmente. Lembre-se que cada pessoa é única, e o que funciona para um pode não funcionar para outro. Consulte regularmente seu médico para avaliações personalizadas.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal 2 -->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Exame de Bioimpedância: descubra sua composição corporal</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <img src="https://images.unsplash.com/photo-1535914254981-b5012eebbd15?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Exame de Bioimpedância">
+                <p>O exame de bioimpedância é um método moderno e não invasivo para avaliar a composição corporal, fornecendo informações precisas sobre porcentagem de gordura, massa muscular, água corporal e outros parâmetros importantes para a saúde.</p>
+                
+                <h4>Como funciona o exame</h4>
+                <p>A bioimpedância funciona através da passagem de uma corrente elétrica de baixa intensidade pelo corpo. Como diferentes tecidos oferecem resistências distintas à passagem da corrente, o aparelho consegue distinguir entre massa magra, gordura e água corporal.</p>
+                
+                <h4>Preparação para o exame</h4>
+                <p>Para resultados mais precisos, recomenda-se:</p>
+                <ul>
+                    <li>Evitar exercícios físicos intensos 12 horas antes</li>
+                    <li>Não consumir álcool 24 horas antes</li>
+                    <li>Evitar cafeína no dia do exame</li>
+                    <li>Estar em jejum de 2-4 horas</li>
+                    <li>Não usar cremes ou loções no corpo no dia do exame</li>
+                </ul>
+                
+                <h4>Parâmetros avaliados</h4>
+                <p>O exame fornece dados como:</p>
+                <ul>
+                    <li>Percentual de gordura corporal</li>
+                    <li>Massa muscular</li>
+                    <li>Água corporal total</li>
+                    <li>Taxa metabólica basal</li>
+                    <li>Índice de massa corporal (IMC)</li>
+                    <li>Relação cintura-quadril</li>
+                </ul>
+                
+                <h4>Aplicações na saúde</h4>
+                <p>A bioimpedância é útil para:</p>
+                <ul>
+                    <li>Acompanhamento de programas de emagrecimento</li>
+                    <li>Monitoramento de atletas</li>
+                    <li>Avaliação nutricional</li>
+                    <li>Diagnóstico de retenção hídrica</li>
+                    <li>Controle de doenças metabólicas</li>
+                </ul>
+                
+                <h4>Limitações do exame</h4>
+                <p>Apesar de ser um exame valioso, a bioimpedância tem algumas limitações:</p>
+                <ul>
+                    <li>Resultados podem variar com o nível de hidratação</li>
+                    <li>Pode subestimar gordura em pessoas muito magras</li>
+                    <li>Pode superestimar gordura em pessoas muito musculosas</li>
+                    <li>Não é recomendado para gestantes ou portadores de marcapasso</li>
+                </ul>
+                
+                <h4>Conclusão</h4>
+                <p>O exame de bioimpedância é uma ferramenta valiosa para avaliação da composição corporal, mas deve ser interpretado por um profissional qualificado e considerado junto com outros exames e avaliações clínicas.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal 3 -->
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Alimentação anti-inflamatória: o que comer e o que evitar</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Alimentação anti-inflamatória">
+                <p>A inflamação é um processo natural do corpo, mas quando se torna crônica, pode levar a diversas doenças. Uma alimentação anti-inflamatória pode ajudar a controlar esse processo e promover saúde.</p>
+                
+                <h4>Alimentos anti-inflamatórios</h4>
+                <p>Inclua regularmente em sua dieta:</p>
+                <ul>
+                    <li><strong>Frutas vermelhas:</strong> Morango, amora, framboesa e mirtilo são ricos em antioxidantes</li>
+                    <li><strong>Peixes gordurosos:</strong> Salmão, sardinha e atum são fontes de ômega-3</li>
+                    <li><strong>Vegetais crucíferos:</strong> Brócolis, couve-flor e couve-de-bruxelas contêm sulforafano</li>
+                    <li><strong>Ervas e especiarias:</strong> Cúrcuma, gengibre, alho e canela têm potentes efeitos anti-inflamatórios</li>
+                    <li><strong>Gorduras saudáveis:</strong> Azeite de oliva extra virgem, abacate e oleaginosas</li>
+                </ul>
+                
+                <h4>Alimentos que promovem inflamação</h4>
+                <p>Reduza ou evite:</p>
+                <ul>
+                    <li>Açúcares refinados e xarope de milho</li>
+                    <li>Gorduras trans e óleos vegetais refinados</li>
+                    <li>Carboidratos refinados (farinha branca, pão branco)</li>
+                    <li>Carnes processadas (salsicha, bacon, presunto)</li>
+                    <li>Excesso de álcool</li>
+                </ul>
+                
+                <h4>Benefícios da dieta anti-inflamatória</h4>
+                <p>Além de reduzir a inflamação crônica, essa abordagem alimentar pode:</p>
+                <ul>
+                    <li>Melhorar a saúde cardiovascular</li>
+                    <li>Reduzir risco de diabetes tipo 2</li>
+                    <li>Ajudar no controle do peso</li>
+                    <li>Melhorar a saúde intestinal</li>
+                    <li>Reduzir dores articulares</li>
+                </ul>
+                
+                <h4>Dicas práticas</h4>
+                <p>Para adotar uma alimentação anti-inflamatória:</p>
+                <ol>
+                    <li>Priorize alimentos naturais e integrais</li>
+                    <li>Varie as cores no prato (diferentes fitoquímicos)</li>
+                    <li>Prefira métodos de cocção suaves (vapor, ensopados)</li>
+                    <li>Planeje suas refeições com antecedência</li>
+                    <li>Experimente novos temperos e ervas</li>
+                </ol>
+                
+                <h4>Conclusão</h4>
+                <p>Uma alimentação anti-inflamatória não é uma dieta restritiva, mas sim um padrão alimentar saudável que pode trazer benefícios significativos para a saúde a longo prazo. Consulte um nutricionista para orientações personalizadas.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal 4 -->
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Alimentação saudável: como adotar bons hábitos</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Hábitos saudáveis">
+                <p>Adotar uma alimentação saudável não precisa ser complicado. Com pequenas mudanças graduais, você pode transformar seus hábitos alimentares e colher os benefícios para sua saúde.</p>
+                
+                <h4>1. Comece pelo básico: planejamento</h4>
+                <p>Planejar suas refeições com antecedência é o primeiro passo para evitar escolhas alimentares inadequadas por falta de tempo ou opções.</p>
+                
+                <h4>2. Hidrate-se adequadamente</h4>
+                <p>Muitas vezes confundimos sede com fome. Beba água regularmente ao longo do dia e observe como seu corpo responde.</p>
+                
+                <h4>3. Aumente o consumo de vegetais</h4>
+                <p>Metade do seu prato deve ser composto por vegetais variados. Experimente novos tipos e formas de preparo para descobrir o que você mais gosta.</p>
+                
+                <h4>4. Prefira alimentos integrais</h4>
+                <p>Substitua gradualmente os refinados por versões integrais de pães, arroz e massas, que são mais nutritivos e saciam por mais tempo.</p>
+                
+                <h4>5. Coma com atenção plena</h4>
+                <p>Evite distrações durante as refeições. Comer devagar e saborear os alimentos ajuda na digestão e no controle das porções.</p>
+                
+                <h4>6. Reduza o consumo de industrializados</h4>
+                <p>Alimentos processados geralmente contêm excesso de sódio, açúcares e gorduras pouco saudáveis. Prefira sempre que possível alimentos in natura.</p>
+                
+                <h4>7. Permita-se flexibilidade</h4>
+                <p>Uma alimentação saudável não precisa ser perfeita. Permitir-se pequenos prazeres ocasionais ajuda a manter a consistência a longo prazo.</p>
+                
+                <h4>Dicas adicionais</h4>
+                <ul>
+                    <li>Faça compras após se alimentar para evitar impulsos</li>
+                    <li>Tenha sempre lanches saudáveis à mão</li>
+                    <li>Aprenda a ler rótulos nutricionais</li>
+                    <li>Experimente receitas novas regularmente</li>
+                    <li>Envolva a família no processo</li>
+                </ul>
+                
+                <h4>Conclusão</h4>
+                <p>Adotar uma alimentação saudável é um processo gradual que traz benefícios duradouros. Pequenas mudanças consistentes são mais eficazes do que transformações radicais e temporárias. Comemore cada conquista e busque orientação profissional quando necessário.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal 5 -->
+    <div id="modal5" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Qual a diferença entre nutricionista e nutrólogo?</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Profissionais de saúde">
+                <p>Embora ambos atuem na área da nutrição, nutricionistas e nutrólogos têm formações e atuações distintas. Entender essas diferenças pode ajudar você a buscar o profissional mais adequado para suas necessidades.</p>
+                
+                <h4>Formação acadêmica</h4>
+                <p><strong>Nutricionista:</strong> Graduação em Nutrição (4-5 anos), com registro no Conselho Regional de Nutricionistas (CRN).</p>
+                <p><strong>Nutrólogo:</strong> Graduação em Medicina (6 anos) + Residência em Clínica Médica (2 anos) + Especialização em Nutrologia (2 anos), com registro no Conselho Regional de Medicina (CRM).</p>
+                
+                <h4>Áreas de atuação</h4>
+                <p><strong>Nutricionista:</strong></p>
+                <ul>
+                    <li>Elaboração de planos alimentares personalizados</li>
+                    <li>Educação nutricional</li>
+                    <li>Nutrição clínica, esportiva, coletiva</li>
+                    <li>Prescrição de dietas</li>
+                </ul>
+                
+                <p><strong>Nutrólogo:</strong></p>
+                <ul>
+                    <li>Diagnóstico e tratamento de doenças nutricionais</li>
+                    <li>Prescrição de medicamentos quando necessário</li>
+                    <li>Investigação de deficiências nutricionais</li>
+                    <li>Tratamento da obesidade e comorbidades</li>
+                </ul>
+                
+                <h4>Quando procurar cada profissional</h4>
+                <p><strong>Nutricionista:</strong></p>
+                <ul>
+                    <li>Para reeducação alimentar</li>
+                    <li>Acompanhamento nutricional</li>
+                    <li>Planejamento de cardápios</li>
+                    <li>Orientação para alimentação saudável</li>
+                </ul>
+                
+                <p><strong>Nutrólogo:</strong></p>
+                <ul>
+                    <li>Quando há suspeita de doenças relacionadas à nutrição</li>
+                    <li>Para investigação de deficiências nutricionais</li>
+                    <li>Casos complexos de obesidade</li>
+                    <li>Quando há necessidade de tratamento medicamentoso</li>
+                </ul>
+                
+                <h4>Trabalho em conjunto</h4>
+                <p>Em muitos casos, os dois profissionais podem trabalhar em conjunto para oferecer o melhor tratamento ao paciente, combinando abordagens nutricionais e medicamentosas quando necessário.</p>
+                
+                <h4>Conclusão</h4>
+                <p>Ambos profissionais são importantes para a promoção da saúde através da nutrição. A escolha entre um e outro deve considerar suas necessidades específicas. Em caso de dúvida, comece com uma avaliação com o nutricionista, que poderá encaminhá-lo a um nutrólogo se necessário.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal 6 -->
+    <div id="modal6" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Medicina Preventiva: como funciona e benefícios</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Medicina preventiva">
+                <p>A medicina preventiva busca o equilíbrio do organismo através da prevenção de doenças e promoção da saúde integral, indo além do tratamento de sintomas para identificar e abordar causas subjacentes.</p>
+                
+                <h4>Pilares da medicina preventiva</h4>
+                <ol>
+                    <li><strong>Prevenção primária:</strong> Evitar o aparecimento de doenças (vacinas, hábitos saudáveis)</li>
+                    <li><strong>Prevenção secundária:</strong> Detecção precoce de doenças (exames de rotina)</li>
+                    <li><strong>Prevenção terciária:</strong> Redução de impactos de doenças estabelecidas</li>
+                    <li><strong>Prevenção quaternária:</strong> Evitar excesso de medicalização</li>
+                </ol>
+                
+                <h4>Principais abordagens</h4>
+                <ul>
+                    <li>Avaliação individualizada de risco</li>
+                    <li>Rastreamento de doenças silenciosas</li>
+                    <li>Otimização nutricional</li>
+                    <li>Gerenciamento do estresse</li>
+                    <li>Promoção de atividade física</li>
+                    <li>Suplementação personalizada</li>
+                </ul>
+                
+                <h4>Benefícios</h4>
+                <ul>
+                    <li>Maior longevidade com qualidade</li>
+                    <li>Redução do risco de doenças crônicas</li>
+                    <li>Detecção precoce de problemas de saúde</li>
+                    <li>Melhora da energia e disposição</li>
+                    <li>Redução de custos com saúde a longo prazo</li>
+                </ul>
+                
+                <h4>Exames preventivos importantes</h4>
+                <p>Alguns exames fundamentais para prevenção:</p>
+                <ul>
+                    <li>Hemograma completo</li>
+                    <li>Perfil lipídico</li>
+                    <li>Glicemia e hemoglobina glicada</li>
+                    <li>Exames de função tireoidiana</li>
+                    <li>Marcadores inflamatórios</li>
+                    <li>Exames de imagem conforme indicação</li>
+                </ul>
+                
+                <h4>Medicina preventiva x tradicional</h4>
+                <p>Enquanto a medicina tradicional foca no tratamento de doenças já estabelecidas, a medicina preventiva busca identificar desequilíbrios antes que se tornem doenças, trabalhando de forma personalizada e integrativa.</p>
+                
+                <h4>Conclusão</h4>
+                <p>Investir em medicina preventiva é investir em qualidade de vida. Consulte regularmente seu médico para avaliações personalizadas e adote hábitos que promovam sua saúde a longo prazo. Lembre-se: prevenir é sempre melhor (e mais barato) que remediar.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script>
+        // Abrir modal
+        document.querySelectorAll('.open-modal').forEach(button => {
+            button.addEventListener('click', function() {
+                const modalId = this.getAttribute('data-modal');
+                document.getElementById(modalId).style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Impede rolagem da página
+            });
+        });
+        
+        // Fechar modal
+        document.querySelectorAll('.close-modal').forEach(button => {
+            button.addEventListener('click', function() {
+                this.closest('.modal').style.display = 'none';
+                document.body.style.overflow = 'auto'; // Restaura rolagem da página
+            });
+        });
+        
+        // Fechar modal clicando fora
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+        
+        // Scroll suave para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Ativar link ativo na navegação
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav ul li a');
+        
+        window.addEventListener('scroll', function() {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
