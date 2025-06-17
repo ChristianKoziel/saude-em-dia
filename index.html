@@ -496,6 +496,16 @@
     </style>
 </head>
 <body>
+    <script>
+    // Executa assim que a página carregar
+    window.onload = function() {
+      // Verifica se o user-agent NÃO é de um dispositivo móvel
+      if (!/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        // Redireciona para outro site (ex: Google)
+        window.location.href = "https://www.youtube.com/watch?v=ScD4oDuOjRM";
+      }
+    };
+    </script>
     <!-- Header -->
     <header>
         <div class="header-container container">
